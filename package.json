@@ -6,6 +6,7 @@
   "scripts": {
     "start": "npx node server.js",
     "dev": "npx nodemon server.js",
+    "seed": "knex seed:run",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],

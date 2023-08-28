@@ -3,6 +3,7 @@ const app = express();
 const cors = require("cors");
 const servicesRoute = require("./routes/servicesRouter");
 const supportRoute = require("./routes/supportRouter");
+const loginRouter = require("./routes/loginRouter");
 
 require("dotenv").config();
 
@@ -13,6 +14,7 @@ app.use(cors());
 app.use(express.json());
 app.use("/services", servicesRoute);
 app.use("/support", supportRoute);
+app.use("/login", loginRouter);
 
 app.get("/", (req, res) => {
   console.log("Get on server");
