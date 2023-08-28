@@ -1,7 +1,8 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
-const servicesRoute = require("./routes/servicesRouter");
+const serviceRoute = require("./routes/serviceRouter");
+
 const supportRoute = require("./routes/supportRouter");
 const loginRouter = require("./routes/loginRouter");
 
@@ -12,9 +13,10 @@ const api_URL = process.env.API_URL;
 
 app.use(cors());
 app.use(express.json());
-app.use("/services", servicesRoute);
-app.use("/support", supportRoute);
-app.use("/login", loginRouter);
+app.use("/services", serviceRoute);
+
+// app.use("/support", supportRoute);
+// app.use("/login", loginRouter);
 
 app.get("/", (req, res) => {
   console.log("Get on server");
