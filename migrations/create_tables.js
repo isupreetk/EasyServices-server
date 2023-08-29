@@ -67,6 +67,9 @@ exports.up = function (knex) {
           .references("service.id")
           .onUpdate("CASCADE")
           .onDelete("CASCADE"),
+        table.timestamp("appointment_date"),
+        table.string("slot"),
+        table.string("user_input"),
         table.timestamp("created_on").defaultTo(knex.fn.now()),
         table.string("status"),
         table
@@ -75,6 +78,16 @@ exports.up = function (knex) {
           .references("service_provider.id")
           .onDelete("CASCADE")
           .onUpdate("CASCADE");
+    })
+    .createTable("user_request_files", (table) => {
+      table.increments("id").primary(),
+        table
+          .integer("user_request_id")
+          .unsigned()
+          .references("user_request.id")
+          .onUpdate("CASCADE")
+          .onDelete("CASCADE"),
+        table.string("file_URL");
     })
     .createTable("queries_raised", (table) => {
       table.increments("id").primary(),
@@ -89,6 +102,16 @@ exports.up = function (knex) {
         table.string("image_URL").notNullable(),
         table.timestamp("raised_on").defaultTo(knex.fn.now()),
         table.string("status").notNullable();
+    })
+    .createTable("queries_raised_files", (table) => {
+      table.increments("id").primary(),
+        table
+          .integer("queries_raised_id")
+          .unsigned()
+          .references("queries_raised.id")
+          .onUpdate("CASCADE")
+          .onDelete("CASCADE"),
+        table.string("file_URL");
     })
     .createTable("ratings_reviews", (table) => {
       table.increments("id").primary(),
@@ -119,6 +142,16 @@ exports.up = function (knex) {
       table.timestamp("created_on").defaultTo(knex.fn.now()),
         table.string("estimated_duration").notNullable();
     })
+    .createTable("quote_files", (table) => {
+      table.increments("id").primary(),
+        table
+          .integer("quote_id")
+          .unsigned()
+          .references("quote.id")
+          .onUpdate("CASCADE")
+          .onDelete("CASCADE"),
+        table.string("file_URL");
+    })
     .createTable("payment", (table) => {
       table.increments("id").primary(),
         table
@@ -136,9 +169,12 @@ exports.up = function (knex) {
 exports.down = function (knex) {
   return knex.schema
     .dropTable("payment")
+    .dropTable("quote_files")
     .dropTable("quote")
     .dropTable("ratings_reviews")
+    .dropTable("queries_raised_files")
     .dropTable("queries_raised")
+    .dropTable("user_request_files")
     .dropTable("user_request")
     .dropTable("service_provider")
     .dropTable("user")
