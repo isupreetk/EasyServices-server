@@ -22,8 +22,6 @@ const getBookedService = (_req, res) => {
 };
 
 const createServiceBooking = (req, res) => {
-  console.log(req.params.serviceId);
-
   knex("user_request")
     .insert({
       user_id: 1,
