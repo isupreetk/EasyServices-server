@@ -3,7 +3,7 @@ const router = express.Router();
 const bookServiceController = require("../controllers/bookServiceController");
 
 router
-  .route("/:serviceId")
+  .route("/")
   .get(bookServiceController.getBookedService)
   .post(bookServiceController.createServiceBooking);
 

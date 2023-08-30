@@ -41,7 +41,6 @@ const createServiceBooking = (req, res) => {
     });
   //   res.send("Post on booking");
 };
-
 // const getSingleServiceCategory = (req, res) => {
 //   knex("service_category")
 //     .join("service", "service.service_category_id", "service_category.id")
