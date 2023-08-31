@@ -5,6 +5,7 @@ const serviceRoute = require("./routes/serviceRouter");
 const bookServiceRoute = require("./routes/bookServiceRouter");
 // const bookServiceImageRoute = require("./routes/bookServiceImageRoute");
 const bookServiceImageRoute1 = require("./routes/bookServiceImageRoute1");
+const bookingLogRoute = require("./routes/bookingLogRoute");
 
 const supportRoute = require("./routes/supportRouter");
 const loginRouter = require("./routes/loginRouter");
@@ -20,6 +21,7 @@ app.use("/services", serviceRoute);
 app.use("/schedule", bookServiceRoute);
 // app.use("/scheduleImage", bookServiceImageRoute);
 app.use("/scheduleImage", bookServiceImageRoute1);
+app.use("/bookings", bookingLogRoute);
 
 // app.use("/support", supportRoute);
 // app.use("/login", loginRouter);
