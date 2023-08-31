@@ -139,8 +139,9 @@ exports.up = function (knex) {
           .onUpdate("CASCADE")
           .onDelete("CASCADE"),
         table.string("amount").notNullable();
-      table.timestamp("created_on").defaultTo(knex.fn.now()),
-        table.string("estimated_duration").notNullable();
+      table.string("estimated_duration").notNullable(),
+        table.string("description"),
+        table.timestamp("created_on").defaultTo(knex.fn.now());
     })
     .createTable("quote_files", (table) => {
       table.increments("id").primary(),
