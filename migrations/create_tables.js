@@ -1,5 +1,10 @@
 exports.up = function (knex) {
   return knex.schema
+    .createTable("login", (table) => {
+      table.increments("id").primary(),
+        table.string("email").notNullable(),
+        table.string("password").notNullable();
+    })
     .createTable("service_category", (table) => {
       table.increments("id").primary(),
         table.string("category_name").notNullable(),
