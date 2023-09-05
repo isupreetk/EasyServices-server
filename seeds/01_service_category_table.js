@@ -6,14 +6,14 @@ const service_category_data = [
   {
     id: 1,
     category_name: "Furniture Assembly",
-    category_description: "Get everything Assembled",
+    category_description: "Get everything assembled",
     image_URL: `${api_URL}/images/category_images/furniture_assembly_category.jpg`,
   },
 
   {
     id: 2,
     category_name: "Plumbing",
-    category_description: "Get everyhting fixed",
+    category_description: "Get everything fixed",
     image_URL: `${api_URL}/images/category_images/plumbing_category.jpg`,
   },
 
@@ -34,17 +34,15 @@ const service_category_data = [
   {
     id: 5,
     category_name: "Electrical & Lighting",
-    category_description:
-      "We can connect you with a qualified Local Pro you can trust for your Electrical Services needs. Hiring a licensed electrician makes it easier for you to take care of your home improvement projects, wherever or whenever they arise.",
+    category_description: "Get all Electrical Services.",
     image_URL: `${api_URL}/images/category_images/electrical_lighting_category.jpg`,
   },
 
   {
     id: 6,
     category_name: "Painting & Decoration",
-    category_description:
-      "You can easily take care of your House Painting, Drywall Repair and Wallpaper projects, wherever or whenever they arise.",
-    image_URL: `${api_URL}/images/category_images/electrical_lighting_category.jpg`,
+    category_description: "Take care of your Walls & Decor.",
+    image_URL: `${api_URL}/images/category_images/painting_category.jpg`,
   },
 ];
 
