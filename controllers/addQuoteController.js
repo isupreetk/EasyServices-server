@@ -47,6 +47,7 @@ const getSingleTask = (req, res) => {
 };
 
 const createQuote = (req, res) => {
+  let { id } = req.params;
   knex("quote")
     .insert({
       user_request_id: req.body.user_request_id,
