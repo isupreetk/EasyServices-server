@@ -19,6 +19,7 @@ const createServiceBooking = (req, res) => {
       appointment_date: req.body.appointment_date,
       slot: req.body.slot,
       user_input: req.body.user_input,
+      status: "In Progress",
     })
     .then((data) => {
       res.json(data);
