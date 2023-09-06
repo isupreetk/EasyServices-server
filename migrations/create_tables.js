@@ -186,6 +186,5 @@ exports.down = function (knex) {
     .dropTable("service_provider")
     .dropTable("user")
     .dropTable("service")
-    .dropTable("service_category")
-    .dropTable("login");
+    .dropTable("service_category");
 };
