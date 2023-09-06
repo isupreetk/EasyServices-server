@@ -1,16 +1,6 @@
 const knex = require("knex")(require("../knexfile"));
 
 const getInProgressTasks = (_req, res) => {
-  //   knex("user_request")
-  //     .where("user_id", 1)
-  //     .where("status", "In Progress")
-  //     .then((data) => {
-  //       res.json(data);
-  //     })
-  //     .catch((error) => {
-  //       res.send(error);
-  //     });
-
   knex
     .select(
       "category_name",
@@ -25,11 +15,15 @@ const getInProgressTasks = (_req, res) => {
       "quote.estimated_duration",
       "quote.description"
     )
-    .from("quote")
-    .join("user_request", "user_request_id", "user_request.id")
-    .join("service_category", "service_category_id", "service_category.id")
-    .join("service", "user_request.service_id", "service.id")
-    .join(
+    .from("user_request")
+    .leftOuterJoin("quote", "user_request_id", "user_request.id")
+    .leftOuterJoin(
+      "service_category",
+      "service_category_id",
+      "service_category.id"
+    )
+    .leftOuterJoin("service", "user_request.service_id", "service.id")
+    .leftOuterJoin(
       "service_provider",
       "quote.service_provider_id",
       "service_provider.id"
@@ -45,16 +39,6 @@ const getInProgressTasks = (_req, res) => {
 };
 
 const getCompletedTasks = (_req, res) => {
-  //   knex("user_request")
-  //     .where("user_id", 1)
-  //     .where("status", "Completed")
-  //     .then((data) => {
-  //       res.json(data);
-  //     })
-  //     .catch((error) => {
-  //       res.send(error);
-  //     });
-
   knex
     .select(
       "category_name",

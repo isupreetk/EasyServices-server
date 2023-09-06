@@ -11,8 +11,7 @@ const JWT_SECRET_KEY = process.env.JWT_SECRET_KEY;
 const loginRoute = require("./routes/loginRouter");
 const serviceRoute = require("./routes/serviceRouter");
 const bookServiceRoute = require("./routes/bookServiceRouter");
-// const bookServiceImageRoute = require("./routes/bookServiceImageRoute");
-const bookServiceImageRoute1 = require("./routes/bookServiceImageRoute1");
+const bookServiceImageRoute = require("./routes/bookServiceImageRoute");
 const bookingLogRoute = require("./routes/bookingLogRoute");
 const supportRoute = require("./routes/supportRouter");
 
@@ -43,15 +42,12 @@ function authenticateToken(req, res, next) {
 app.use("/login", loginRoute);
 app.use("/services", serviceRoute);
 app.use("/schedule", bookServiceRoute);
-// app.use("/scheduleImage", bookServiceImageRoute);
-app.use("/scheduleImage", bookServiceImageRoute1);
+app.use("/scheduleImage", bookServiceImageRoute);
 app.use("/bookings", bookingLogRoute);
 
 app.use("/feed", serviceProviderFeedRoute);
 app.use("/addQuote", addQuoteRoute);
-
-// app.use("/support", supportRoute);
-// app.use("/login", loginRouter);
+app.use("/support", supportRoute);
 
 app.get("/", (req, res) => {
   console.log("Get on server");
