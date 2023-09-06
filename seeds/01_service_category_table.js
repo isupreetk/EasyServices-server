@@ -14,7 +14,7 @@ const service_category_data = [
     id: 2,
     category_name: "Plumbing",
     category_description: "Get everything fixed",
-    image_URL: `${api_URL}/images/category_images/plumbing_category.jpg`,
+    image_URL: `${api_URL}/images/category_images/plumbing.png`,
   },
 
   {
@@ -35,14 +35,14 @@ const service_category_data = [
     id: 5,
     category_name: "Electrical & Lighting",
     category_description: "Get all Electrical Services.",
-    image_URL: `${api_URL}/images/category_images/electrical_lighting_category.jpg`,
+    image_URL: `${api_URL}/images/category_images/electrical.png`,
   },
 
   {
     id: 6,
     category_name: "Painting & Decoration",
     category_description: "Take care of your Walls & Decor.",
-    image_URL: `${api_URL}/images/category_images/painting_category.jpg`,
+    image_URL: `${api_URL}/images/category_images/painting.png`,
   },
 ];
 
