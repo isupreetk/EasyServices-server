@@ -27,11 +27,11 @@ router
               expiresIn: "1h",
             }
           );
-          res.json({ token: token, username: data[0].username });
+          res.status(200).json({ token: token, username: data[0].username });
         }
       })
       .catch((error) => {
-        res.send(error);
+        res.status(500).send(error);
       });
   });
 
