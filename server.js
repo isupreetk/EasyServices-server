@@ -7,6 +7,7 @@ const jwt = require("jsonwebtoken");
 const port = process.env.PORT;
 const api_URL = process.env.API_URL;
 const JWT_SECRET_KEY = process.env.JWT_SECRET_KEY;
+const signUpRoute = require("./routes/signUpRouter");
 
 const loginRoute = require("./routes/loginRouter");
 const serviceRoute = require("./routes/serviceRouter");
@@ -39,6 +40,7 @@ function authenticateToken(req, res, next) {
   });
 }
 
+app.use("/signUp", signUpRoute);
 app.use("/login", loginRoute);
 app.use("/services", serviceRoute);
 app.use("/schedule", bookServiceRoute);
