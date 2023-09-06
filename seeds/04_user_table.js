@@ -6,6 +6,7 @@ const user_data = [
     firstname: "Supreet",
     lastname: "Kaur",
     phone: "123456789",
+    username: "supreetk",
     email: "supreet@easyservices.com",
     apartment: "123",
     street: "",

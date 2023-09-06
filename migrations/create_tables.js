@@ -2,7 +2,7 @@ exports.up = function (knex) {
   return knex.schema
     .createTable("login", (table) => {
       table.increments("id").primary(),
-        table.string("email").notNullable(),
+        table.string("username").notNullable(),
         table.string("password").notNullable();
     })
     .createTable("service_category", (table) => {
@@ -30,6 +30,7 @@ exports.up = function (knex) {
         table.string("firstname").notNullable(),
         table.string("lastname").notNullable(),
         table.string("phone").notNullable(),
+        table.string("username").notNullable(),
         table.string("email").notNullable(),
         table.string("apartment").notNullable(),
         table.string("street").notNullable(),
@@ -185,5 +186,6 @@ exports.down = function (knex) {
     .dropTable("service_provider")
     .dropTable("user")
     .dropTable("service")
-    .dropTable("service_category");
+    .dropTable("service_category")
+    .dropTable("login");
 };
