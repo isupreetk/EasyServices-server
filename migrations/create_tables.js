@@ -175,6 +175,7 @@ exports.up = function (knex) {
 
 exports.down = function (knex) {
   return knex.schema
+    .dropTable("login")
     .dropTable("payment")
     .dropTable("quote_files")
     .dropTable("quote")
