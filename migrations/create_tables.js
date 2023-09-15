@@ -3,7 +3,8 @@ exports.up = function (knex) {
     .createTable("login", (table) => {
       table.increments("id").primary(),
         table.string("username").notNullable(),
-        table.string("password").notNullable();
+        table.string("password").notNullable(),
+        table.string("service_provider").notNullable();
     })
     .createTable("service_category", (table) => {
       table.increments("id").primary(),
