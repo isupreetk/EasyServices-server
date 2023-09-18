@@ -21,13 +21,21 @@ router
           res.status(401).json({ message: "Authentication failed" });
         } else {
           const token = jwt.sign(
-            { userId: data[0].id, userName: data[0].username },
+            {
+              userId: data[0].id,
+              userName: data[0].username,
+              serviceProvider: data[0].service_provider,
+            },
             JWT_SECRET_KEY,
             {
               expiresIn: "1h",
             }
           );
-          res.status(200).json({ token: token, username: data[0].username });
+          res.status(200).json({
+            token: token,
+            username: data[0].username,
+            service_provider: data[0].service_provider,
+          });
         }
       })
       .catch((error) => {
